@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="w-10/12 m-0 m-auto p-10">
+
+    <h1 class="text-3xl font-semibold">MINI CHAT</h1>
+    <br/>
+
+    <form id="miFormulario">
+
+        <div class="flex">
+            <div class="mr-4">
+                <input type="text" placeholder="mensaje" id="txtMensaje" class="border w-full"/>
+            </div>
+            <div>
+                <button type="submit" class="bg-blue-400 p-1 rounded-sm">Enviar</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div>
+        <div>
+            <ul id="misMensajes">
+                
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        const socket = io('http://localhost:8080')
+         
+        socket.on('current-bands', (data) => {
+                console.log(data)
+        })
+
+        // socket.on('mensaje-binevenida',(data) => {
+        //     console.log(data)
+        // })
+
+
+
+
+        // setTimeout(() =>{
+        //         //emitie evento que
+        //         socket.emit('mensaje-cliente',{
+        //             mensaje: 'josue esta enfermo',
+        //             nombre: 'josue'
+
+        //         })
+        // },2000)
+    </script>
+</body>
+</html>
